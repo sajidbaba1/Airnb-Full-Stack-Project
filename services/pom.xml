@@ -19,5 +19,6 @@
     <modules>
         <module>location-service</module>
         <module>user-service</module>
+        <module>airline-service</module>
     </modules>
 </project>
