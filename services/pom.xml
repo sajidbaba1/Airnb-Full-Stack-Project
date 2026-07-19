@@ -20,5 +20,6 @@
         <module>location-service</module>
         <module>user-service</module>
         <module>airline-service</module>
+        <module>flight-service</module>
     </modules>
 </project>

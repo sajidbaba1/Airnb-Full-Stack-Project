@@ -61,3 +61,19 @@ This file tracks the exact order of coding steps, configurations, and decisions 
 6.  **Implemented Caching Services**: Added lookup and eviction rules backed by Redis caching in `AircraftServiceImpl`.
 7.  **Created Controller**: Exposed REST endpoints under `/api/aircraft` in [AircraftController.java](file:///c:/full%20stack%20projects/airnb%20project/services/airline-service/src/main/java/com/josh/airline/controller/AircraftController.java).
 
+---
+
+### Phase 6: Flight Operation Microservice Development
+1.  **Updated Services Aggregator POM**: Added `<module>flight-service</module>` inside [services/pom.xml](file:///c:/full%20stack%20projects/airnb%20project/services/pom.xml).
+2.  **Created Configuration**: Configured port `5005`, registration in Eureka registry, and DB datasource coordinates in [application.yml](file:///c:/full%20stack%20projects/airnb%20project/services/flight-service/src/main/resources/application.yml).
+3.  **Modeled Flight Entities**:
+    *   [FlightStatus.java](file:///c:/full%20stack%20projects/airnb%20project/services/flight-service/src/main/java/com/josh/flight/entity/FlightStatus.java): Enum for flight execution states.
+    *   [Flight.java](file:///c:/full%20stack%20projects/airnb%20project/services/flight-service/src/main/java/com/josh/flight/entity/Flight.java): Logical reference maps for routes.
+    *   [FlightSchedule.java](file:///c:/full%20stack%20projects/airnb%20project/services/flight-service/src/main/java/com/josh/flight/entity/FlightSchedule.java): Weekday operating configurations.
+    *   [FlightInstance.java](file:///c:/full%20stack%20projects/airnb%20project/services/flight-service/src/main/java/com/josh/flight/entity/FlightInstance.java): Bookable physical flights.
+4.  **Created Repositories**: Declared custom queries in `FlightRepository`, `FlightScheduleRepository`, and `FlightInstanceRepository`.
+5.  **Created DTOs & Mappers**: Standardized requests and mapper translations.
+6.  **Implemented Instance Generator Service**: Created `FlightScheduleServiceImpl` featuring the automatic date-traversal instance generator engine.
+7.  **Created Controllers**: Exposed REST endpoints under `/api/flights`, `/api/schedules`, and `/api/instances` in [FlightController.java](file:///c:/full%20stack%20projects/airnb%20project/services/flight-service/src/main/java/com/josh/flight/controller/FlightController.java), [FlightScheduleController.java](file:///c:/full%20stack%20projects/airnb%20project/services/flight-service/src/main/java/com/josh/flight/controller/FlightScheduleController.java), and [FlightInstanceController.java](file:///c:/full%20stack%20projects/airnb%20project/services/flight-service/src/main/java/com/josh/flight/controller/FlightInstanceController.java).
+
+
