@@ -1,0 +1,35 @@
+server:
+  port: 5001
+
+spring:
+  application:
+    name: location-service
+  datasource:
+    # Supports MySQL or Oracle. Uncomment and update database details as needed.
+    url: jdbc:mysql://localhost:3306/airline_location_db?useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true
+    # For Oracle DB, use: jdbc:oracle:thin:@localhost:1521:ORCL
+    # url: jdbc:oracle:thin:@localhost:1521:XE
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # For Oracle: oracle.jdbc.OracleDriver
+    # driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+        # For Oracle: org.hibernate.dialect.OracleDialect
+        # dialect: org.hibernate.dialect.OracleDialect
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
