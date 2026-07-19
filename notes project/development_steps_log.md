@@ -76,4 +76,19 @@ This file tracks the exact order of coding steps, configurations, and decisions 
 6.  **Implemented Instance Generator Service**: Created `FlightScheduleServiceImpl` featuring the automatic date-traversal instance generator engine.
 7.  **Created Controllers**: Exposed REST endpoints under `/api/flights`, `/api/schedules`, and `/api/instances` in [FlightController.java](file:///c:/full%20stack%20projects/airnb%20project/services/flight-service/src/main/java/com/josh/flight/controller/FlightController.java), [FlightScheduleController.java](file:///c:/full%20stack%20projects/airnb%20project/services/flight-service/src/main/java/com/josh/flight/controller/FlightScheduleController.java), and [FlightInstanceController.java](file:///c:/full%20stack%20projects/airnb%20project/services/flight-service/src/main/java/com/josh/flight/controller/FlightInstanceController.java).
 
+---
+
+### Phase 7: Booking Microservice Development
+1.  **Updated Services Aggregator POM**: Added `<module>booking-service</module>` inside [services/pom.xml](file:///c:/full%20stack%20projects/airnb%20project/services/pom.xml).
+2.  **Created Configuration**: Configured port `5006`, registration in Eureka registry, and DB datasource coordinates in [application.yml](file:///c:/full%20stack%20projects/airnb%20project/services/booking-service/src/main/resources/application.yml).
+3.  **Modeled Booking Entities**:
+    *   [BookingStatus.java](file:///c:/full%20stack%20projects/airnb%20project/services/booking-service/src/main/java/com/josh/booking/entity/BookingStatus.java): Enum for reservation transaction states.
+    *   [Booking.java](file:///c:/full%20stack%20projects/airnb%20project/services/booking-service/src/main/java/com/josh/booking/entity/Booking.java): Manages reservation headers with cascading passenger manifests.
+    *   [PassengerDetail.java](file:///c:/full%20stack%20projects/airnb%20project/services/booking-service/src/main/java/com/josh/booking/entity/PassengerDetail.java): Stores seat assignments and manifest profiles.
+4.  **Created Repositories**: Declared lookup queries in `BookingRepository` and custom JPQL seat occupancy checks in `PassengerDetailRepository`.
+5.  **Created DTOs & Mappers**: Standardized booking parameters and recursions in `BookingMapper`.
+6.  **Implemented Booking Service**: Created `BookingServiceImpl` containing atomic transactional seat validations preventing double-booking conflicts.
+7.  **Created Controller**: Exposed REST endpoints under `/api/bookings` in [BookingController.java](file:///c:/full%20stack%20projects/airnb%20project/services/booking-service/src/main/java/com/josh/booking/controller/BookingController.java).
+
+
 
